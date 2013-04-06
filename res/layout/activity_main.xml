@@ -1,0 +1,182 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <VideoView
+            android:id="@+id/vvTop"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true" />
+
+        <RelativeLayout
+            android:id="@+id/ControlLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="bottom" >
+
+            <com.wsu.simulator.VideoOverlay
+                android:id="@+id/svDraw"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <ImageButton
+                android:id="@+id/bScreenshot"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/camera" />
+
+            <ImageView
+                android:id="@+id/ivAutoManual"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/tractorthing" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/bManual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/bZoomOut"
+                android:text="Manual" />
+
+            <Button
+                android:id="@+id/bZoomIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/bForward"
+                android:text="+" />
+
+            <Button
+                android:id="@+id/bZoomOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/bZoomIn"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/bAuto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/bForward"
+                android:text="Auto" />
+
+            <ImageButton
+                android:id="@+id/bForward"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/bManual"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/up" />
+
+            <ImageButton
+                android:id="@+id/bLeft"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/bForward"
+                android:layout_toLeftOf="@+id/bForward"
+                android:src="@drawable/left" />
+
+            <ImageButton
+                android:id="@+id/bBackward"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignTop="@+id/bLeft"
+                android:layout_toRightOf="@+id/bLeft"
+                android:src="@drawable/down" />
+
+            <ImageButton
+                android:id="@+id/bRight"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_alignTop="@+id/bBackward"
+                android:layout_toRightOf="@+id/bBackward"
+                android:src="@drawable/right" />
+
+            <Button
+                android:id="@+id/bZap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/bLeft"
+                android:text="Zap!" />
+
+            <Button
+                android:id="@+id/bStop"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/bZap"
+                android:text="Stop Zap!"
+                android:textColor="@color/red" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <fragment
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="461dp"
+                class="com.google.android.gms.maps.SupportMapFragment" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:padding="5px" >
+
+                <Button
+                    android:id="@+id/bUndo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:text="Undo Last Waypoint" />
+
+                <Button
+                    android:id="@+id/bPOI"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:text="Point Of Interest" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>
